@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +17,16 @@ namespace MyFirstCsProgram
 
             var coach = new Coach { Name = "Frank", Age = 44 };
 
-            var team1 = new Team
+            var team1 = new Team(11)
             {
                 Coach = coach,
-                Players = new List<FootballPlayer> { player1, player2, player3, player4 }
+                
             };
+             
+            team1.AddPlayer(player1);
+            team1.AddPlayer(player2);
+            team1.AddPlayer(player3);
+            team1.AddPlayer(player4);
 
             var referee = new Referee { Name = "John", Age = 35 };
 
@@ -29,12 +34,19 @@ namespace MyFirstCsProgram
             var assistantReferee2 = new AssistantReferee { Name = "Roger", Age = 30 };
 
             var game = new Game
-            {
-                Team1 = team1,
-                Team2 = new Team(),
-                Referee = referee,
-                AssistantReferees = new List<AssistantReferee> { assistantReferee1, assistantReferee2 }
-            };
+           {
+            Team1 = team1,
+            Referee = referee,
+            AssistantReferees = new List<AssistantReferee> { assistantReferee1, assistantReferee2 }
+        };
+            
+            var goal1 = new Goal { Minute = 16, Player = player3 };
+            var goal2 = new Goal { Minute = 57, Player = player4 };
+
+            game.Goals.Add(goal1);
+            game.Goals.Add(goal2);
+            game.Result = "2-0";
+            game.Winner = team1;
 
             Console.WriteLine("Game result: ");
             Console.WriteLine("Team 1: " + game.Team1.Coach.Name);
@@ -51,6 +63,13 @@ namespace MyFirstCsProgram
             foreach (var assistantReferee in game.AssistantReferees)
             {
                 Console.WriteLine("- " + assistantReferee.Name);
+            }
+            
+            Console.WriteLine("Goals:");
+        
+            foreach (var goal in game.Goals)
+            {
+                Console.WriteLine("- Minute: " + goal.Minute + ", Player: " + goal.Player.Name);
             }
             Console.WriteLine("Result: " + game.Reasult);
             Console.WriteLine("Winner: " + (game.Winner != null ? game.Winner.Coach.Name : "N/A"));
