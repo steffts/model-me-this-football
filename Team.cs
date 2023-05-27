@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +24,23 @@ namespace MyFirstCsProgram
                 }
 
                 return (double)totalAge / Players.Count;
+            }
+        }
+        
+        public Team(int numberOfPlayers)
+        {
+            Players = new List<FootballPlayer>(numberOfPlayers);
+        }
+        
+        public void AddPlayer(FootballPlayer player)
+        { 
+            if (Players.Count < Players.Capacity)
+            {
+                Players.Add(player);
+            }
+            else
+            {
+                Console.WriteLine("The team is already full. Cannot add more players.");
             }
         }
 
