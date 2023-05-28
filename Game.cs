@@ -13,7 +13,7 @@ namespace MyFirstCsProgram
         public Referee Referee { get; set; }
         public List<AssistantReferee> AssistantReferees { get; set; }
         public List<Goal> Goals { get; set; }
-        public string Reasult { get; set; }
+        public string Result { get; set; }
         public Team Winner { get; set; }
 
         public Game() 
