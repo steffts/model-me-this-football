@@ -71,7 +71,7 @@ namespace MyFirstCsProgram
             {
                 Console.WriteLine("- Minute: " + goal.Minute + ", Player: " + goal.Player.Name);
             }
-            Console.WriteLine("Result: " + game.Reasult);
+            Console.WriteLine("Result: " + game.Result);
             Console.WriteLine("Winner: " + (game.Winner != null ? game.Winner.Coach.Name : "N/A"));
 
             Console.ReadLine();
