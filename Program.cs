@@ -49,7 +49,7 @@ namespace MyFirstCsProgram
             game.Winner = team1;
 
             Console.WriteLine("Game result: ");
-            Console.WriteLine("Team 1: " + game.Team1.Coach.Name);
+            Console.WriteLine("Team 1 coach: " + game.Team1.Coach.Name);
             Console.WriteLine("Players: ");
 
             foreach (var player in game.Team1.Players)
